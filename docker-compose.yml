@@ -1,0 +1,18 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile.api
+      args:
+        - JAR_FILE_NAME=demo-0.0.1-SNAPSHOT.jar
+    ports:
+      - 8080:8080
+  ui:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile.ui
+    ports:
+      - 3000:3000
+    depends_on:
+      - api

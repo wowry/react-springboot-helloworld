@@ -1,0 +1,8 @@
+FROM eclipse-temurin:11-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE_NAME
+WORKDIR /api
+COPY ./api /api
+RUN sh ./build.sh
+RUN mv ./target/${JAR_FILE_NAME} ./target/app.jar
+ENTRYPOINT ["java","-jar","./target/app.jar"]
