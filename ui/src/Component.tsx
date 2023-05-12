@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 
 export const Component: React.FC = () => {
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState("Connecting...");
 
   useEffect(() => {
     fetch("http://localhost:8080/api/hello", { method: "GET" })
